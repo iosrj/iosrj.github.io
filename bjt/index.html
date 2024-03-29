@@ -148,7 +148,7 @@ var over = document.getElementById('over');
 </a><a class="soft_btn" href="/"><div style="color:#fff">全功能操作教程</div></a>
 
 
-<a class="soft_btn" href="http://mls.tangcheng168.cc/bjt/441b16d676e92cf2416fbe9becb6550.jpg"><div style="color:#fff">功能素材图获取</div></a>
+<a class="soft_btn" href="/bjt/441b16d676e92cf2416fbe9becb6550.jpg"><div style="color:#fff">功能素材图获取</div></a>
 
 
 <style>  
@@ -310,54 +310,54 @@ clickEffect();//调用特效函数
                     android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
                     iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
                     iPad: u.indexOf('iPad') > -1, //是否iPad
-                    网络应用程序：u。indexOf ( 'Safari' ) == - 1  //是否web应该程序，没有头部与底部
-                };};
-            }(),}(),
-            语言: (navigator.browserLanguage || navigator.language).toLowerCase()language: (navigator.browserLanguage || navigator.language).toLowerCase()
-        }}
-
-        函数 is_weixin() {function is_weixin() {
-            var ua = navigator.userAgent.toLowerCase();var ua = navigator.userAgent.toLowerCase();
-            var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent));var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent));
-            var isAndroidQQ = ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser') ））；var isAndroidQQ = ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser')));
-            var isQQ = isIosQQ || 是AndroidQQ；var isQQ = isIosQQ || isAndroidQQ;
-            if (ua.match(/MicroMessenger/i) == "微信" || isQQ) {if (ua.match(/MicroMessenger/i) == "micromessenger" || isQQ) {
-                返回真；return true;
-            } 别的 {} else {
-                返回假；return false;
-            }}
-        }}
-        var  isWeixin = is_weixin ( ) ;var  isWeixin = is_weixin ( ) ;
-        var  winHeight =窗口类型。innerHeight != '未定义' ? 窗户。内部高度：文档。文档元素. 客户端高度；var  winHeight =窗口类型。内部高度！= '未定义'？窗户。内部高度：文档。文档元素. 客户端高度；
-        函数loadHtml ( ) {函数 loadHtml ( ) {
-
-            var  div = 文档。创建元素( 'div' ) ; var  div = 文档。创建元素( 'div' ) ;
-            分区 id = '微信提示' ;id = '微信提示' ;
-            if ( browser. versions . ios || browser. versions . iPhone || browser. versions . iPad ) { if ( browser. versions . ios || browser. versions . iPhone || browser. versions . iPad ) {
-                分区 innerHTML = '<p><img style="position:absolute; left:15px; top:0px; width:93%; height:260px" src="https://nim-nosdn.netease.im/MTExNTUxNzE =/ bmltYV8zMzY4NzE2MzU4NV8xNjUwMTIyNTM4NDg0XzMxNWU1OGQwLTNlZjAtNDQ1ZC04NjQ5LTY3ZWFjNWM4MmE2YQ==?createTime=1650122538666" alt="贝吉塔"/></p>' ;innerHTML = '<p><img样式=“位置：绝对；左：15px；顶部：0px；宽度：93％ ;高度:260px" src="https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjUwMTIyNTM4NDg0XzMxNWU1OGQwLTNlZjAtNDQ1ZC04NjQ5LTY3ZWFjNWM4MmE2YQ==?createTime=16 50122538666" alt="贝吉塔"/></p>' ;
-            }否则if ( browser. versions . android ) { } else  if ( browser. versions . android ) {
-                分区 innerHTML = '<p><img style="position:absolute; left:15px; top:0px; width:93%; height:260px" src="https://nim-nosdn.netease.im/MTExNTUxNzE =/ bmltYV8zMzY4NzE2MzU4NV8xNjUwMTIyNTM4NDg0XzMxNWU1OGQwLTNlZjAtNDQ1ZC04NjQ5LTY3ZWFjNWM4MmE2YQ==?createTime=1650122538666" alt="贝吉塔"/></p>' ;innerHTML = '<p><img样式=“位置：绝对；左：15px；顶部：0px；宽度：93％ ;高度:260px" src="https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjUwMTIyNTM4NDg0XzMxNWU1OGQwLTNlZjAtNDQ1ZC04NjQ5LTY3ZWFjNWM4MmE2YQ==?createTime=16 50122538666" alt="贝吉塔"/></p>' ;
-            } }
-            文档。身体。追加子项（ div ）；主体。追加子级（ div ）；
-        }}
-
-        函数 loadStyleText ( cssText )  {函数 loadStyleText ( cssText )  {
-            var 样式= 文档. 创建元素( '样式' ) ; var 样式= 文档. 创建元素( '样式' ) ;
-            风格。rel = '样式表' ;rel = '样式表' ;
-            风格。type = '文本/css' ;type = 'text/css' ;
-            尝试{尝试 {
-                风格。appendChild ( document.createTextNode ( cssText ) ) ;​ appendChild ( document.createTextNode ( cssText ) ) ;​
-            } 捕获 ( e )  { }  catch  ( e )  {
-                风格。样式表。cssText = cssText; //ie9以下styleSheet.cssText = cssText; //ie9以下
-            } }
-            var  head =文档。getElementsByTagName ( "头" ) [ 0 ] ; //head标签加上style样式之间var head=document.getElementsByTagName("head")[0]; //head标签加上style样式之间
-            头。addChild (样式) ; 追加子元素（样式）；
-        } }
-        var  cssText = "#weixin-tip{位置：固定；边境：0；顶部：0；背景：rgba(0,0,0,0.8)；缝隙：alpha(不透明度=80)；宽度：100% ；高度： 100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}" ; var  cssText = "#weixin-tip{位置：固定；左侧：0；顶部：0；背景：rgba(0,0,0,0.8)；滤镜：alpha(不透明度=80)；宽度：100%；高度： 100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}" ;
-        if (是微信) {if (是微信) {
-            加载Html ( ) ;
-            加载样式文本（ cssText ）；
+                    webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                };
+            }(),
+            language: (navigator.browserLanguage || navigator.language).toLowerCase()
         }
-    < /脚本>
+
+        function is_weixin() {
+            var ua = navigator.userAgent.toLowerCase();
+            var isIosQQ = ( /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) && /\sQQ/i.test(navigator.userAgent));
+            var isAndroidQQ = ( /(Android)/i.test(navigator.userAgent) && /MQQBrowser/i.test(navigator.userAgent) && /\sQQ/i.test((navigator.userAgent).split('MQQBrowser')));
+            var isQQ = isIosQQ || isAndroidQQ;
+            if (ua.match(/MicroMessenger/i) == "micromessenger" || isQQ) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var isWeixin = is_weixin();
+        var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+        function loadHtml(){
+
+            var div = document.createElement('div');
+            div.id = 'weixin-tip';
+            if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+                div.innerHTML = '<p><img style="position:absolute; left:15px; top:0px; width:93%; height:260px" src="https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjUwMTIyNTM4NDg0XzMxNWU1OGQwLTNlZjAtNDQ1ZC04NjQ5LTY3ZWFjNWM4MmE2YQ==?createTime=1650122538666" alt="贝吉塔"/></p>';
+            }else if(browser.versions.android){
+                div.innerHTML = '<p><img style="position:absolute; left:15px; top:0px; width:93%; height:260px" src="https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjUwMTIyNTM4NDg0XzMxNWU1OGQwLTNlZjAtNDQ1ZC04NjQ5LTY3ZWFjNWM4MmE2YQ==?createTime=1650122538666" alt="贝吉塔"/></p>';
+            }
+            document.body.appendChild(div);
+        }
+
+        function loadStyleText(cssText) {
+            var style = document.createElement('style');
+            style.rel = 'stylesheet';
+            style.type = 'text/css';
+            try {
+                style.appendChild(document.createTextNode(cssText));
+            } catch (e) {
+                style.styleSheet.cssText = cssText; //ie9以下
+            }
+            var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+            head.appendChild(style);
+        }
+        var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}";
+        if(isWeixin){
+            loadHtml();
+            loadStyleText(cssText);
+        }
+    </script>
  
-</body> < div id = “transmart-crx-shadow-root” 样式= “全部：灵魂;” > </div> </html>​​​​全部：初始
+</body><div id="transmart-crx-shadow-root" style="all: initial;"></div></html>
