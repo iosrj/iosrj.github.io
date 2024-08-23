@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>激活码查询</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #444;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #444;
+            overflow-wrap: break-word;
+        }
+
+        .error {
+            color: #ff5555;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .copy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>激活码查询</h1>
+        <form id="queryForm">
+            <label for="activationCode">请输入激活码:</label><br>
+            <input type="text" id="activationCode" name="activationCode" required>
+            <button type="submit">查询</button>
+        </form>
+        
+        <div class="result" id="queryResult"></div>
+    </div>
+
+    <script>
+        document.getElementById('queryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const activationCode = document.getElementById('activationCode').value;
+            fetch(`https://api.appproducts.site/api/down/redeem/uPUEXx/code/${activationCode}/`)
+                .then(response => response.json())
+                .then(data => {
+                    displayResult(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('queryResult').innerHTML = `<p class="error">发生错误，请稍后再试。</p>`;
+                });
+        });
+
+        function displayResult(data) {
+            const resultDiv = document.getElementById('queryResult');
+            if (data.code !== 1) {
+                resultDiv.innerHTML = `<p class="error">激活码不存在。</p>`;
+            } else if (data.data.active_time === 0) {
+                resultDiv.innerHTML = `<p>激活码: ${data.data.code}<br>状态: 未激活</p>`;
+            } else {
+                const tf1Link = `https://testflight.apple.com/v1/invite/${data.data.tf1_link}`;
+                const activeTime = new Date(data.data.active_time * 1000).toLocaleString();
+                resultDiv.innerHTML = `
+                    <p>激活码: ${data.data.code}<br><br>
+                       激活时间: ${activeTime}<br><br>
+                       安装链接: 
+                       <span id="link">${tf1Link}</span><br><br>
+                       <button class="copy-button" onclick="copyToClipboard('#link')">复制安装链接</button>
+                    </p>
+                `;
+            }
+        }
+
+        async function copyToClipboard(selector) {
+            const el = document.querySelector(selector);
+            try {
+                await navigator.clipboard.writeText(el.textContent);
+                alert('链接已复制到剪贴板!');
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                alert('复制失败，请手动复制链接!');
+            }
+        }
+
+        async function clearLink() {
+            const linkId = document.getElementById('link').textContent; // 获取当前链接
+            try {
+                const response = await fetch('http://localhost:3000/clear-tf1-link', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ tf1_link: linkId })
+                });
+
+                if (response.ok) {
+                    alert('链接已成功清除！');
+                    // 你可以在这里刷新页面或者重新获取数据
+                    // refreshData();
+                } else {
+                    alert('清除链接失败，请重试！');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('清除链接失败，请重试！');
+            }
+        }
+    </script>
+</body>
+</html>
